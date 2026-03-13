@@ -1,21 +1,24 @@
 # Python Port Status
 
-This repository has been migrated away from C# source files. All previous `.cs` files have been replaced with `.py` modules following the same directory structure.
+This repository has been migrated away from C# source files.
 
-## Migration outcome
+## Current state
 
-- Removed all C# source files from the repository.
-- Generated Python modules for each former C# source location.
-- Retained the existing Python CLI port (`python/enemizer_py`) and tests.
+- C# source files have been replaced with Python modules.
+- Core functionality has started being ported with real implementations in:
+  - `EnemizerCLI.Core/Program.py`
+  - `EnemizerCLI.Core/RandomizerPatch.py`
+  - `EnemizerLibrary/OptionFlags.py`
+  - `EnemizerLibrary/RomData.py`
+- Unit tests cover CLI patch flow, option flag serialization, and ROM metadata handling.
 
-## Notes
+## Still in progress
 
-- The generated modules preserve module/class naming structure so the project can continue incrementally refining behavior in Python.
-- Some modules are currently placeholder implementations and should be iteratively completed with full logic parity.
+- Large portions of `EnemizerLibrary` subsystems (boss/enemy randomization, graph logic, GUI parity) still need full behavior parity beyond placeholder modules.
 
 ## Validation
 
 ```bash
-rg --files -g '*.cs'
 pytest -q
+rg --files -g '*.cs' | wc -l
 ```

@@ -1,14 +1,14 @@
-"""Auto-ported Python module from C# source.
-Original namespace: EnemizerCLI.
-"""
-
 from __future__ import annotations
 
+from dataclasses import dataclass
 
 
+@dataclass
 class CommandLineOptions:
-
-    """Class port placeholder generated from C# source."""
-
-    pass
-
+    BaseRomFilename: str
+    SeedNumber: str = ""
+    BasePatchJsonFilename: str | None = None
+    RandomizerPatchJsonFilename: str | None = None
+    EnemizerOptionsJsonFilename: str = ""
+    OutputFilePath: str = ""
+    BinaryMode: bool = False
